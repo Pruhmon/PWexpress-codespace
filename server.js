@@ -7,22 +7,24 @@ const port = 3000;
 //create instance of Express app
 const app = express();
 
+app.set("view engine", "ejs");
+app.use(express.static("public")); 
 //index/home URL
 app.get('/',(req,res)=>{
-    res.send(`
-	    <h1>Home Page</h1>
-      <p>Welcome to Express!</p>
-  `);
-
+  res.render("pages/index", {title:"Home"});
 });
 
 //about page/url
 app.get('/about',(req,res)=>{
-    res.send(`
-	    <h1>About Page</h1>
-      <p>Stuff about us goes here!</p>
-  `);
+  res.render("pages/about", {title:"about"});
+});
 
+app.get('/valorant',(req,res)=>{
+  res.render("pages/valorant", {title:"valorant"});
+});
+
+app.get('/obama',(req,res)=>{
+  res.render("pages/obama", {title:"obama"});
 });
 
 

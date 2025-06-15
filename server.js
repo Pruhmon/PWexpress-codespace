@@ -7,8 +7,16 @@ const port = 3000;
 //create instance of Express app
 const app = express();
 const data = require("./test.json");
+//includes .env file for credentials
+require('dotenv').config();
+//manages database connectivity
+require('./models/mongoose');
+
 app.set("view engine", "ejs");
 app.use(express.static("public")); 
+const recipeRoutes = require('./routes/recipes');
+app.use('/recipes', recipeRoutes);
+
 //index/home URL
 app.get('/',(req,res)=>{
   res.render("pages/index", {title:"Home"});

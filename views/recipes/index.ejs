@@ -1,9 +1,8 @@
-//views/recipes/index.ejs
 <%- include('../partials/header', { title: 'All Recipes' }) %>
 
-<h1>All Recipes</h1>
+<h1 style="color:white">All Recipes</h1>
 
-<table class="table table-hover table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -23,3 +22,10 @@
         <td><%= recipe.rating %></td>
       </tr>
     <% }) %>
+  </tbody>
+</table>
+<div class="text-right mt-3">
+  <a href="/recipes/add" class="btn-info btn mt-3">Add Recipe</a>
+</div>
+
+<%- include('../partials/footer') %>
